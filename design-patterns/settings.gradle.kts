@@ -11,3 +11,6 @@ include(":01-creational:02-factory-method")
 include(":01-creational:03-abstract-factory")
 include(":01-creational:04-builder")
 include(":01-creational:05-prototype")
+
+// Structural
+include(":02-structural:01-adapter")

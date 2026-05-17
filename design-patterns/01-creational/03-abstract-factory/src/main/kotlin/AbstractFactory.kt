@@ -12,13 +12,13 @@ interface Checkbox {
 // Group Mac
 
 class MacButton : Button {
-    override fun render()  {
+    override fun render() {
         println("This is Mac Button")
     }
 }
 
 class MacCheckbox : Checkbox {
-    override fun check()  {
+    override fun check() {
         println("This is Mac Checkbox")
     }
 }
@@ -26,13 +26,13 @@ class MacCheckbox : Checkbox {
 // Group Window
 
 class WindowsButton : Button {
-    override fun render()  {
+    override fun render() {
         println("This is Windows Button")
     }
 }
 
 class WindowsCheckbox : Checkbox {
-    override fun check()  {
+    override fun check() {
         println("This is Windows Checkbox")
     }
 }
