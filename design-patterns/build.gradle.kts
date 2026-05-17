@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.1.20" apply false
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1" apply false
+    kotlin("jvm") version "2.3.21"
 }
 
 allprojects {
@@ -56,4 +56,10 @@ tasks.register("ktCheck") {
     group = "verification"
     description = "Check Kotlin code style across every subproject (no auto-fix)"
     dependsOn(subprojects.map { "${it.path}:ktlintCheck" })
+}
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+}
+repositories {
+    mavenCentral()
 }

@@ -8,3 +8,4 @@ rootProject.name = "design-patterns"
 // Add more subprojects here as you build them by hand.
 include(":01-creational:01-singleton")
 include(":01-creational:02-factory-method")
+include(":01-creational:03-abstract-factory")
