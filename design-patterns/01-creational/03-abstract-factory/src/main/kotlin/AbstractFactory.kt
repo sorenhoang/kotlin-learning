@@ -1,38 +1,38 @@
 package creational.abstractfactory
 
 // interface
-interface Button{
+interface Button {
     fun render()
 }
 
-interface Checkbox{
+interface Checkbox {
     fun check()
 }
 
 // Group Mac
 
-class MacButton : Button{
-    override fun render(){
+class MacButton : Button {
+    override fun render()  {
         println("This is Mac Button")
     }
 }
 
-class MacCheckbox : Checkbox{
-    override fun check(){
+class MacCheckbox : Checkbox {
+    override fun check()  {
         println("This is Mac Checkbox")
     }
 }
 
 // Group Window
 
-class WindowsButton : Button{
-    override fun render(){
+class WindowsButton : Button {
+    override fun render()  {
         println("This is Windows Button")
     }
 }
 
-class WindowsCheckbox : Checkbox{
-    override fun check(){
+class WindowsCheckbox : Checkbox {
+    override fun check()  {
         println("This is Windows Checkbox")
     }
 }
@@ -41,17 +41,19 @@ class WindowsCheckbox : Checkbox{
 
 interface UIFactory {
     fun createButton(): Button
+
     fun createCheckbox(): Checkbox
 }
 
-
 object WindowsFactory : UIFactory {
     override fun createButton(): Button = WindowsButton()
+
     override fun createCheckbox(): Checkbox = WindowsCheckbox()
 }
 
 object MacFactory : UIFactory {
     override fun createButton(): Button = MacButton()
+
     override fun createCheckbox(): Checkbox = MacCheckbox()
 }
 
@@ -70,8 +72,7 @@ class Application(private val factory: UIFactory) {
     }
 }
 
-fun main()
-{
+fun main() {
     println("Hello Abstract Factory Design Pattern")
 
     // init Win UI
