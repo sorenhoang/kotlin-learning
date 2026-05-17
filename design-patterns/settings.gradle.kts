@@ -9,3 +9,4 @@ rootProject.name = "design-patterns"
 include(":01-creational:01-singleton")
 include(":01-creational:02-factory-method")
 include(":01-creational:03-abstract-factory")
+include(":01-creational:04-builder")
