@@ -14,3 +14,4 @@ include(":01-creational:05-prototype")
 
 // Structural
 include(":02-structural:01-adapter")
+include(":02-structural:02-bridge")
