@@ -1,31 +1,29 @@
 package creational.singleton
 
-
-object AppSetting{
+object AppSetting {
     init {
         println("-> AppSettings: Init the first time and only once!")
     }
 
-    var theme : String = "Light"
-    const val language : String = "English"
+    var theme: String = "Light"
+    const val LANGUAGE: String = "English"
 
-    fun showConfig()
-    {
-        println("-> AppSettings: Theme: $theme, Language $language")
+    fun showConfig() {
+        println("-> AppSettings: Theme: $theme, Language $LANGUAGE")
     }
 }
 
-class DatabaseConnection private constructor(val connectionUrl: String){
-    init{
+class DatabaseConnection private constructor(val connectionUrl: String) {
+    init {
         println("-> DatabaseConnection init")
     }
 
-    fun executeQuery(sql : String){
+    fun executeQuery(sql: String) {
         println("-> DatabaseConnection Query: $sql")
     }
 
     companion object {
-         private var instance: DatabaseConnection? = null
+        private var instance: DatabaseConnection? = null
 
         fun getInstance(url: String): DatabaseConnection {
             return instance ?: DatabaseConnection(url).also { instance = it }

@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.20" apply false
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1" apply false
 }
 
 allprojects {
@@ -14,6 +15,7 @@ allprojects {
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "application")
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
 
     dependencies {
@@ -38,4 +40,20 @@ subprojects {
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
     }
+}
+
+// Root-level alias task: format toàn bộ Kotlin code trong mọi subproject.
+// Chạy: ./gradlew ktFormat
+tasks.register("ktFormat") {
+    group = "formatting"
+    description = "Format all Kotlin code across every subproject"
+    dependsOn(subprojects.map { "${it.path}:ktlintFormat" })
+}
+
+// Tuỳ chọn: chỉ check không format. Hữu ích trong CI.
+// Chạy: ./gradlew ktCheck
+tasks.register("ktCheck") {
+    group = "verification"
+    description = "Check Kotlin code style across every subproject (no auto-fix)"
+    dependsOn(subprojects.map { "${it.path}:ktlintCheck" })
 }

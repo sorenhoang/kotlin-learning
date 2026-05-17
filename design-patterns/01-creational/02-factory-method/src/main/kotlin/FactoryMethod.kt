@@ -1,29 +1,29 @@
 package creational.factorymethod
 
-interface Notification{
+interface Notification {
     fun sendNotification()
 }
 
-class EmailNotification : Notification{
+class EmailNotification : Notification {
     override fun sendNotification() {
         println("This notification was sent by Email")
     }
 }
 
-class SMSNotification : Notification{
+class SMSNotification : Notification {
     override fun sendNotification() {
         println("This notification was sent by SMS")
     }
 }
 
-enum class NotificationType{
-    EMAIL, SMS
+enum class NotificationType {
+    EMAIL,
+    SMS,
 }
 
-object NotificationFactory{
-    fun createNotification(type:NotificationType) : Notification{
-        return when(type)
-        {
+object NotificationFactory {
+    fun createNotification(type: NotificationType): Notification {
+        return when (type) {
             NotificationType.EMAIL -> EmailNotification()
             NotificationType.SMS -> SMSNotification()
         }
@@ -39,5 +39,3 @@ fun main(args: Array<String>) {
     emailChannel.sendNotification()
     smsChannel.sendNotification()
 }
-
-
