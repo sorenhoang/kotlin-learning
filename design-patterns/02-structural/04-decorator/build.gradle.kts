@@ -4,5 +4,5 @@ plugins {
 }
 
 application {
-    mainClass.set("structural.composite.CompositeKt")
+    mainClass.set("structural.decorator.DecoratorKt")
 }

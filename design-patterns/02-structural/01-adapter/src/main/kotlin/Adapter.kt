@@ -27,7 +27,7 @@ class XmlToJsonAdapter(private val xmlLibrary: AdvancedXmlAnalyticsLibrary) : Js
         xmlLibrary.analyzeXmlData(convertedXml)
     }
 
-    private fun convertJsonToXml(json: String): String  {
+    private fun convertJsonToXml(json: String): String {
         val value = json.substringAfter(": \"").substringBefore("\"}")
         return "<data>$value</data>"
     }

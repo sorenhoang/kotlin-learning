@@ -3,6 +3,7 @@ package structural.bridge
 interface Device {
     var isEnabled: Boolean
     var volume: Int
+
     fun printStatus()
 }
 

@@ -2,12 +2,13 @@ package structural.composite
 
 interface FileSystemComponent {
     val name: String
+
     fun printStructure(indent: String)
+
     fun getSize(): Int
 }
 
 class File(override val name: String, private val size: Int) : FileSystemComponent {
-
     override fun printStructure(indent: String) {
         println("$indent📄 $name ($size KB)")
     }
@@ -49,27 +50,32 @@ fun main(args: Array<String>) {
     val file2 = File("README.md", 2)
     val file3 = File("Adapter.kt", 5)
 
-    val singletonFolder = Folder("01-singleton").also {
-        it.addComponent(file1)
-        it.addComponent(file2)
-    }
+    val singletonFolder =
+        Folder("01-singleton").also {
+            it.addComponent(file1)
+            it.addComponent(file2)
+        }
 
-    val adapterFolder = Folder("01-adapter").also {
-        it.addComponent(file3)
-    }
+    val adapterFolder =
+        Folder("01-adapter").also {
+            it.addComponent(file3)
+        }
 
-    val creationalFolder = Folder("01-creational").also {
-        it.addComponent(singletonFolder)
-    }
+    val creationalFolder =
+        Folder("01-creational").also {
+            it.addComponent(singletonFolder)
+        }
 
-    val structuralFolder = Folder("02-structural").also {
-        it.addComponent(adapterFolder)
-    }
+    val structuralFolder =
+        Folder("02-structural").also {
+            it.addComponent(adapterFolder)
+        }
 
-    val rootDesignPattern = Folder("design-patterns").also {
-        it.addComponent(creationalFolder)
-        it.addComponent(structuralFolder)
-    }
+    val rootDesignPattern =
+        Folder("design-patterns").also {
+            it.addComponent(creationalFolder)
+            it.addComponent(structuralFolder)
+        }
 
     println("\n--- Structure Pattern ---")
     rootDesignPattern.printStructure("")
