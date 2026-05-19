@@ -20,3 +20,6 @@ include(":02-structural:04-decorator")
 include(":02-structural:05-facade")
 include(":02-structural:06-flyweight")
 include(":02-structural:07-proxy")
+
+// Behavioral
+include(":03-behavioral:01-chain-of-responsibility")
