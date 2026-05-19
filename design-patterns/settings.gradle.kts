@@ -23,3 +23,4 @@ include(":02-structural:07-proxy")
 
 // Behavioral
 include(":03-behavioral:01-chain-of-responsibility")
+include(":03-behavioral:02-command")
